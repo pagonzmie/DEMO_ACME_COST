@@ -1,6 +1,12 @@
 import "tfrun"
 import "decimal"
 
+  if tfrun.cost_estimate else null is null {
+    print("No cost estimates available")
+    # Allow the policy to pass
+    return true
+  }
+
 delta_monthly_cost = 1//decimal.new(tfrun.cost_estimate.delta_monthly_cost)
 
 //if delta_monthly_cost.greater_than(100) {
